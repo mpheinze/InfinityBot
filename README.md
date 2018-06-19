@@ -1,2 +1,4 @@
 # InfinityBot
-Development of Discord Bot for Super Infinity Friends
+Development of a Discord Bot for Super Infinity Friends.
+
+Authors: Cepheid and Lanayia.
