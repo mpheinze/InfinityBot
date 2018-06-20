@@ -15,7 +15,7 @@ client.on('ready', () => {
 
 // Initializing command on !masspm command prompt
 client.on('message', (message) => {
-    if(message.content.startsWith('!masspm') && message.content.split(' ')[0].length === 7 && message.channel.name === 'bot_commands'){
+    if(message.content.startsWith('!masspm ') && message.channel.name === 'bot_commands'){
         
         // Parsing command syntax for [Role] (role) and [Message] (pm_text)
         var role = message.content.split(' ')[1];
