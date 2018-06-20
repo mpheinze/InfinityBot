@@ -15,12 +15,14 @@ client.on('ready', () => {
 
 // Initializing command on !masspm command prompt
 client.on('message', (message) => {
-    if(message.content.startsWith('!masspm')){
+    if(message.content.startsWith('!masspm') && message.content.split(' ')[0].length === 7 && message.channel.name === 'bot_commands'){
         
         // Parsing command syntax for [Role] (role) and [Message] (pm_text)
         var role = message.content.split(' ')[1];
-        var pm_text = message.content.substr(message.content.indexOf(' ', message.content.indexOf(' ') + 1) + 1);
-
+        var disclaimer = '[NOTE: This message was sent to all users with the role: ' + role + ']'
+        var pm_text = message.content.substr(message.content.indexOf(' ', message.content.indexOf(' ') + 1) + 1) +
+            '\n' + '\n' + disclaimer;
+        
         // Populating userlist with users in [Role]
         let userlist = message.guild.members.filter(member => { 
             return member.roles.find('name', role);
@@ -32,8 +34,14 @@ client.on('message', (message) => {
         for (id of userlist) {
             client.users.get(id).send(pm_text);
         }
+        
+        // Sending confirmation message in channel to the author
+        var user_count = userlist.length;
+        message.channel.send(`${message.author.toString()}, your message was successfully sent to ${user_count} user(s) with the role: ${role}.`);
 
     }
 });
+
+
 
 client.login(token.token);
