@@ -1,40 +1,39 @@
+///// ----- InfinityBot Command Handler ----- /////
+
+const prefix = ('!');
 const fs = require('fs');
 const Discord = require("Discord.js");
 const client = new Discord.Client();
 const token = require("C:/token/token.json");
-client.commands = new Discord.Collection(); // collections explained below
 
-// this next line is a javascript object which contains all the file names in C:/infinityclient/commands/ and only includes the ones which end with .js
-// e.g. {'test.js', 'masspm.js', 'nextevent.js', 'help.js'}
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+client.commands = new Discord.Collection();
 
-const prefix = ('!');
-
-// client ready
+// Client online
 client.on("ready", () => {
     console.log("InfinityBot Online");
   });
 
 // Auto-reconnect
 client.on('disconnect', function(erMsg, code) {
-  console.log('----- client disconnected from Discord with code', code, 'for reason:', erMsg, '-----');
-  client.connect();
-});
+    console.log('----- client disconnected from Discord with code', code, 'for reason:', erMsg, '-----');
+    client.connect();
+  });
 
+// Initializing incoming commands
 client.on("message", message => {
-  if (message.author.bot) return;
-  if(message.content.indexOf(prefix) !== 0) return;
+    if (message.author.bot) return;
+    if (message.content.indexOf(prefix) !== 0) return;
 
-const args = message.content.slice(prefix.length).trim().split(/ +/g);
-const command = args.shift().toLowerCase();
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const command = args.shift();
 
-try {
-  let commandFile = require(`./commands/${command}.js`);
-  commandFile.run(client, message, args);
-} catch (err) {
-  console.error(err);
-}
+  try {
+    let commandFile = require(`./commands/${command}.js`);
+    commandFile.run(client, message, args);
+  } catch (err) {
+    console.error(err);
+  }
 });
 
-// login token
+// Login token
 client.login(token.token);
