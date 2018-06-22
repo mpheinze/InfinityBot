@@ -1,4 +1,4 @@
-///// -----     Next Upcoming Event Scraper     ----- /////
+///// --------------------     Next Upcoming Event Scraper     -------------------- /////
 
 let request = require('request');
 
@@ -28,8 +28,9 @@ request({
         // Getting index of next event and ID for event specific url
         let date_index = event_diff_list.length - event_diff_list.filter(function(i) {return i > -1} ).length;
         let next_event = body.events[date_index];
-        let next_event_id = next_event.id;
-        let next_event_url = `https://superinfinityfriends.shivtr.com/events/869326?event_instance_id=${next_event_id}`;
+        let event_id = next_event.event_id;
+        let instance_id = next_event.id;
+        let next_event_url = `https://superinfinityfriends.shivtr.com/events/${event_id}?event_instance_id=${instance_id}`;
 
         // Sracping event specific event page
         request({
@@ -39,10 +40,9 @@ request({
             if (!error && response.statusCode === 200) {
 
                 event_info.event.date = event_date_list[date_index];
-                console.log(event_info);
+                // console.log(event_info); // Print JSON with upcoming event data
                 
             }
         })
-
     }
 })
