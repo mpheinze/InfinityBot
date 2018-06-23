@@ -1,6 +1,7 @@
 ///// ----- InfinityBot - !nextraid ----- /////
 
 // Command syntax: !nextraid
+// Arguments: 0
 // Shows next upcoming calendar event as an embed
 
 const Scraper = new require('./htmlscraper');
@@ -16,7 +17,7 @@ exports.run = async (client, message, args, level) => {
         let event_time = `${dateFormat(event_data.event.date.setHours(event_data.event.date.getHours() - 2), 'HH:MM')} ST`;
     
         message.channel.send({embed: {
-            color: 3447003,
+            color: 2190157,
             author: {
                 name: 'Next upcoming raid:',
                 icon_url: message.guild.iconURL
@@ -39,23 +40,3 @@ exports.run = async (client, message, args, level) => {
     });
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

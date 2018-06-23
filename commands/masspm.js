@@ -1,6 +1,7 @@
 ///// ----- InfinityBot - !masspm ----- /////
 
 // Command syntax: !masspm [Role] [Message]
+// Arguments: 2
 // Sends [Message] to all users with [Role]
 
 exports.run = async (client, message, args, level) => {
