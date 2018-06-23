@@ -1,0 +1,19 @@
+{
+  "name": "infinitybot",
+  "version": "1.0.0",
+  "description": "Folder holding commands for InfinityBot",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "InfinityBot"
+  },
+  "author": "mpheinze",
+  "license": "ISC",
+  "dependencies": {
+    "dateformat": "^3.0.3",
+    "discord.js": "^11.3.2"
+  }
+}
