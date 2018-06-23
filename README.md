@@ -1,11 +1,15 @@
 # InfinityBot
 Development of a Discord Bot for Super Infinity Friends.
 
-Upcoming functionalities:
+Current commands available:
+
+- !masspm [Role] [Message]      Sends [Message] to all users marked with [Role]
+- !nextraid                     Shows information about next upcoming raid in the event calendar
+
+Upcoming commands:
 
 - Raid reminder for people who are signed up
 - List signups by raid roles (tank, dps, healer)
-- Personal messages to members of a specified group
 - Raid signups from Discord
 - Google search for boss tactics
 - Much more
