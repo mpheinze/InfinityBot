@@ -3,8 +3,8 @@ Development of a Discord Bot for Super Infinity Friends.
 
 Current commands available:
 
-| Command                   |                            Description                                |
-| ---                       |                                                                   --- |
+|           Command         |                            Description                                |
+| ------------------------  |   ----------------------------------------------------------------    |
 | !masspm [Role] [Message]  |   Sends [Message] to all users marked with [Role]                     |
 | !nextraid                 |   Shows information about next upcoming raid in the event calendar    |
 
