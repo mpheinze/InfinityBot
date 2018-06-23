@@ -34,7 +34,7 @@ function next_event_scraper(callback) {
                 let instance_id = next_event.id;
                 let next_event_url = `https://superinfinityfriends.shivtr.com/events/${event_id}?event_instance_id=${instance_id}`;
 
-                // Sracping event specific event page
+                // Scraping event specific event page
                 request({
                     url: next_event_url,
                     json: true

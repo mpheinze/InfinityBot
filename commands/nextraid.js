@@ -14,7 +14,7 @@ exports.run = async (client, message, args, level) => {
     
         // formatting date and time strings
         let event_date = dateFormat(event_data.event.date, 'dd-mm-yyyy');
-        let event_time = `${dateFormat(event_data.event.date.setHours(event_data.event.date.getHours() - 2), 'HH:MM')} ST`;
+        let event_time = `${dateFormat(event_data.event.date.setHours(event_data.event.date.getHours() - 1), 'HH:MM')} ST`;
     
         message.channel.send({embed: {
             color: 2190157,
