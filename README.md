@@ -6,7 +6,7 @@ Current commands available:
 |           Command         |                            Description                                |
 | ------------------------  |   ----------------------------------------------------------------    |
 | !masspm [Role] [Message]  |   Sends [Message] to all users marked with [Role]                     |
-| !nextraid                 |   Shows information about next upcoming raid in the event calendar    |
+| !nextraid                 |   Shows information about next upcoming raid from the event calendar  |
 
 Upcoming commands:
 
