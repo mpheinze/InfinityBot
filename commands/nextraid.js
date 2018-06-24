@@ -13,15 +13,9 @@ exports.run = async (client, message, args, level) => {
     Scraper.next_event_scraper(function(event_data) {
     
         // formatting date and time strings
-<<<<<<< HEAD
         let event_time = event_data.event.date.toUTCString();
         event_time = `${event_time.substring(0, event_time.length - 7)} ST`
         
-=======
-        let event_date = dateFormat(event_data.event.date, 'dd-mm-yyyy');
-        let event_time = `${dateFormat(event_data.event.date.setHours(event_data.event.date.getHours() - 1), 'HH:MM')} ST`;
-    
->>>>>>> 7435fc3383cfd69c9ba5983ee4da0a646c003336
         message.channel.send({embed: {
             color: 2190157,
             author: {
