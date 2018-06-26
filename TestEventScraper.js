@@ -33,7 +33,7 @@ request(url, function (error, response, body) {
         });
 
         // Printing arrays
-        cosole.log(role_counts);
+        console.log(role_counts);
         console.log(index_list);
         console.log(name_list);
         console.log(class_list);
