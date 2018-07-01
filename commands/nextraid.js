@@ -5,7 +5,7 @@
 // Shows next upcoming calendar event as an embed
 
 const Discord = require("Discord.js");
-const EventScraper = new require('./nextevent_scraper');
+const EventScraper = new require('../util/nextevent_scraper');
 
 exports.run = async (client, message, args, level) => {
     EventScraper.event_scraper(function(event_data) {
