@@ -108,16 +108,35 @@ exports.event_scraper = (callback) => {
                     var description = $('.pad_top').attr('id', 'event_description').text();
                     description = description.replace(/\./i, '. ');
 
-                    // Creating role count array
-                    var role_count_array = {};
-                    role_count_array['tank']    = role_counts[0];
-                    role_count_array['damage']  = role_counts[1];
-                    role_count_array['healer']  = role_counts[2];
-
                     // Getting number of people signed as maybe
                     var signup_maybe = participants.filter(function(element){
                         return isNaN(element.index);
                     }).length;
+                    
+                        // Getting number of tanks signed as maybe
+                        var tank_maybe = participants.filter(function(element){
+                            return isNaN(element.index) && element.role === 'Tank';
+                        }).length;
+
+                        // Getting number of damage signed as maybe
+                        var damage_maybe = participants.filter(function(element){
+                            return isNaN(element.index) && element.role === 'Damage';
+                        }).length;
+
+                        // Getting number of healers signed as maybe
+                        var healer_maybe = participants.filter(function(element){
+                            return isNaN(element.index) && element.role === 'Healer';
+                        }).length;
+
+                    // Creating role count array
+                    var role_count_array = {};
+                    role_count_array['tank_total']    = role_counts[0] - tank_maybe;
+                    role_count_array['tank_maybe']    = tank_maybe;
+                    role_count_array['damage_total']  = role_counts[1] - damage_maybe;
+                    role_count_array['damage_maybe']  = damage_maybe;
+                    role_count_array['healer_total']  = role_counts[2] - healer_maybe;
+                    role_count_array['healer_maybe']  = healer_maybe;
+                    
 
                     // Getting URL for event avatar
                     var avatar_html = $('#shown_event img')[0];
@@ -130,7 +149,7 @@ exports.event_scraper = (callback) => {
                     meta_data['date']           = next_event.date;
                     meta_data['host']           = $('.member_link').first().text();
                     meta_data['description']    = description;
-                    meta_data['signup_total']   = role_counts.reduce((a, b) => (a + b));
+                    meta_data['signup_total']   = role_counts.reduce((a, b) => (a + b)) - signup_maybe;
                     meta_data['signup_maybe']   = signup_maybe;
                     meta_data['role_count']     = role_count_array;
                     

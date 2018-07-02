@@ -21,6 +21,25 @@ exports.run = async (client, message, args, level) => {
             var avatar_url_use = event_data.meta_data.avatar_url;
         };
 
+        var tank_maybe = '';
+        if (event_data.meta_data.role_count.tank_maybe > 0) {
+            var tank_maybe = ` (${event_data.meta_data.role_count.tank_maybe})`;
+        };
+
+        var damage_maybe = '';
+        if (event_data.meta_data.role_count.damage_maybe > 0) {
+            var damage_maybe = ` (${event_data.meta_data.role_count.damage_maybe})`;
+        };
+
+        var healer_maybe = '';
+        if (event_data.meta_data.role_count.healer_maybe > 0) {
+            var healer_maybe = ` (${event_data.meta_data.role_count.healer_maybe})`;
+        };
+
+        var signup_text_tank   = `${event_data.meta_data.role_count.tank_total} ${tank_maybe}`;
+        var signup_text_damage = `${event_data.meta_data.role_count.damage_total} ${damage_maybe}`;
+        var signup_text_healer = `${event_data.meta_data.role_count.healer_total} ${healer_maybe}`;
+
         // Creating embed object 
         const embed = new Discord.RichEmbed()
             .setTitle(event_data.meta_data.title)
@@ -33,9 +52,9 @@ exports.run = async (client, message, args, level) => {
             .addField('__Date and time__', event_date)
             .addField('__Sign-ups__',
                 `Total: ${event_data.meta_data.signup_total} (${event_data.meta_data.signup_maybe} maybe)\n` + 
-                `Tanks: ${event_data.meta_data.role_count.tank}\n` +
-                `Damage: ${event_data.meta_data.role_count.damage}\n` +
-                `Healers: ${event_data.meta_data.role_count.healer}`
+                `Tanks: ${signup_text_tank}\n` +
+                `Damage: ${signup_text_damage}\n` +
+                `Healers: ${signup_text_healer}`
             )
             .addField('__Description__', event_data.meta_data.description)
 
