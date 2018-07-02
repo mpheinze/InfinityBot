@@ -119,9 +119,14 @@ exports.event_scraper = (callback) => {
                         return isNaN(element.index);
                     }).length;
 
+                    // Getting URL for event avatar
+                    var avatar_html = $('#shown_event img')[0];
+                    avatar_url = avatar_html.attribs.style.substring(23, avatar_html.attribs.style.length - 2);
+
                     // Populating meta data object
                     meta_data['title']          = $('.inline').text();
                     meta_data['url']            = event_url;
+                    meta_data['avatar_url']     = avatar_url;
                     meta_data['date']           = next_event.date;
                     meta_data['host']           = $('.member_link').first().text();
                     meta_data['description']    = description;
