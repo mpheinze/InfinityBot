@@ -16,6 +16,8 @@
     "cheerio": "^1.0.0-rc.2",
     "dateformat": "^3.0.3",
     "discord.js": "^11.3.2",
+    "express": "^4.16.3",
+    "path": "^0.12.7",
     "request": "^2.87.0"
   }
 }
