@@ -17,7 +17,7 @@ exports.run = async (client, message, args, level) => {
         const embed = new Discord.RichEmbed()
         embed.setTitle('__InfinityBot Commandlist:__');
         embed.setDescription(msgString.slice(0,-2));
-         console.log({embed});
-         message.channel.send({embed});
+        //console.log({embed});
+        message.channel.send({embed});
     });
 }
