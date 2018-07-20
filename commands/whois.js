@@ -52,6 +52,7 @@ exports.run = async (client, message, args, level) => {
             name = name.replace(guild,"");
             name = name.replace(" ",""); // removes space
 
+            blurb = blurb.trim();
             blurb = blurb.replace(", Outland","");
 
             const embed = new Discord.RichEmbed()
@@ -62,7 +63,7 @@ exports.run = async (client, message, args, level) => {
             .setFooter('© Your friendly neighborhood InfinityBot', client.user.avatarURL)
             .setThumbnail(thumbnail)
             .setTimestamp()
-            .addField(blurb)
+            //.addField(blurb)
 
             message.channel.send({embed});
         }
