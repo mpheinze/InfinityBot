@@ -4,6 +4,7 @@ This command returns some information from the Warmane armory about a character.
 
 */
 
+const Discord = require("Discord.js");
 const request = require('request');
 const cheerio = require('cheerio');
 
@@ -36,10 +37,25 @@ exports.run = async (client, message, args, level) => {
         json: false // which is a JSON
     }, function (error, response, body) {
         if (!error && response.statusCode === 200) {
-            var $ = cheerio.load('<div id="character-sheet">...</div>');
+            var $ = cheerio.load(body);
 
+            var name = $(`div[class=name]`).text();
+            var guild = $(`div[class=name]`).children().text();
+            name = name.replace(guild,"");
+            name = name.replace(" ",""); // removes space
 
-            console.log($('.name').text());
+            var avatar_url_use = 'https://s3.amazonaws.com/s3.mmoguildsites.com/s3/event_photos/869326/original.png?1527890717';
+
+            const embed = new Discord.RichEmbed()
+            .setTitle(name)
+            .setURL(url)
+            .setAuthor(guild)
+            .setColor(2190157)
+            .setFooter('© Your friendly neighborhood InfinityBot', client.user.avatarURL)
+            .setThumbnail(avatar_url_use)
+            .setTimestamp()
+
+            message.channel.send({embed});
         }
     });
 }
