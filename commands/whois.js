@@ -39,12 +39,20 @@ exports.run = async (client, message, args, level) => {
         if (!error && response.statusCode === 200) {
             var $ = cheerio.load(body);
 
+            if ($(`div[id=content-inner]`).children().children().prev().text() === 'Page not found') {
+                message.channel.send("Character not found")
+                return;
+            }
+          
             var name = $(`div[class=name]`).text();
             var guild = $(`div[class=name]`).children().text();
+            var thumbnail = $(`div[class=icon]`).children().attr(`src`);
+            var blurb = $(`div[class=level-race-class]`).text();
+
             name = name.replace(guild,"");
             name = name.replace(" ",""); // removes space
 
-            var avatar_url_use = 'https://s3.amazonaws.com/s3.mmoguildsites.com/s3/event_photos/869326/original.png?1527890717';
+            blurb = blurb.replace(", Outland","");
 
             const embed = new Discord.RichEmbed()
             .setTitle(name)
@@ -52,8 +60,9 @@ exports.run = async (client, message, args, level) => {
             .setAuthor(guild)
             .setColor(2190157)
             .setFooter('© Your friendly neighborhood InfinityBot', client.user.avatarURL)
-            .setThumbnail(avatar_url_use)
+            .setThumbnail(thumbnail)
             .setTimestamp()
+            .addField(blurb)
 
             message.channel.send({embed});
         }
