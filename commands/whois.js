@@ -56,14 +56,13 @@ exports.run = async (client, message, args, level) => {
             blurb = blurb.replace(", Outland","");
 
             const embed = new Discord.RichEmbed()
-            .setTitle(name)
-            .setURL(url)
-            .setAuthor(guild)
+            .setTitle("<"+guild+">")
+            .setAuthor(name,null,url)
             .setColor(2190157)
             .setFooter('© Your friendly neighborhood InfinityBot', client.user.avatarURL)
             .setThumbnail(thumbnail)
             .setTimestamp()
-            //.addField(blurb)
+            .addField(blurb,"Outland",false)
 
             message.channel.send({embed});
         }
