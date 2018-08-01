@@ -5,6 +5,7 @@
 // Send a reminder to everyone signed up for next upcoming event
 
 var EventScraper = new require('../util/nextevent_scraper');
+var fs = require('fs');
 
 exports.run = async (client, message, args, level) => {
 
@@ -14,7 +15,11 @@ exports.run = async (client, message, args, level) => {
         var hours_to_raid = Math.floor(time_diff / 1000 / 60 / 60);
         var minut_to_raid = Math.round((time_diff / 1000 / 60 / 60 - hours_to_raid) * 60);
 
-        var reminder_text = `This is a friendly reminder that you have signed up for today’s raid. The raid will start in **${hours_to_raid}** hour(s) and **${minut_to_raid}** minutes. Please log on in due time. Good luck and have fun!`;
+        var json = fs.readFileSync('./util/raidreminder_text.json');
+        var json_parse = JSON.parse(json);
+        var reminder_text = json_parse.default;
+        reminder_text = reminder_text.replace('[HOURS]', hours_to_raid)
+        reminder_text = reminder_text.replace('[MINUTES]', minut_to_raid)
 
         // Creating user array from Shivtr, excluding users signed as 'maybe'
         var shivtr_array = event_data.raiders.filter((raider) => {

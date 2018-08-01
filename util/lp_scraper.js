@@ -1,0 +1,30 @@
+///// ----- RestAPI for Legacy Players ----- /////
+
+const url = 'https://legacyplayers.com/API.aspx';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

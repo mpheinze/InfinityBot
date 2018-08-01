@@ -1,7 +1,7 @@
 ///// ----- HTML Scraper for Next Event ----- /////
 
-const request = require('request');
-const cheerio = require('cheerio');
+var request = require('request');
+var cheerio = require('cheerio');
 
 exports.event_scraper = (callback) => {
 
@@ -9,7 +9,7 @@ exports.event_scraper = (callback) => {
     var current_date = new Date();
     var month = ('0' + (current_date.getMonth() + 1)).slice(-2);
     var year = current_date.getFullYear();
-    var url = `https://superinfinityfriends.shivtr.com/events?date=${year}-${month}-01`
+    var url = `https://superinfinityfriends.shivtr.com/events?date=${year}-${month}-01`;
 
 
     // Scraping event calendar to find the next upcoming event
@@ -136,7 +136,6 @@ exports.event_scraper = (callback) => {
                     role_count_array['damage_maybe']  = damage_maybe;
                     role_count_array['healer_total']  = role_counts[2] - healer_maybe;
                     role_count_array['healer_maybe']  = healer_maybe;
-                    
 
                     // Getting URL for event avatar
                     var avatar_html = $('#shown_event img')[0];
