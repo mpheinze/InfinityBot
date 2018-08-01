@@ -49,5 +49,8 @@ exports.run = async (client, message, args, level) => {
             i++;
         });
 
+        var user_count = event_data.meta_data.signup_total;
+        message.channel.send(`${message.author.toString()}, ${user_count} signed up users have successfully been reminded of today's raid!`)
+
     });
 }
