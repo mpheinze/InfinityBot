@@ -9,7 +9,9 @@ Current commands available:
 | !nextraid                 |   Shows information about next upcoming raid from the event calendar  |
 | !roster                   |   Shows the members of the current roster                             |
 | !whois [Character]        |   Takes data from the armory about a given [Character]                |
-| !shrug                    |   ¯\\\_(ツ)_/¯                                                          |
+| !shrug                    |   ¯\\\_(ツ)_/¯                                                        |
+| !raidreminder             |   Sends raid reminder to all who are signed up for the next event     |
+
 
 Upcoming commands:
 
