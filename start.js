@@ -2,9 +2,9 @@
 
 const prefix = ('!');
 const fs = require('fs');
-const Discord = require("Discord.js");
+const Discord = require("discord.js");
 const client = new Discord.Client();
-const token = require("C:/token/token.json");
+const token = require("./token.json");
 
 client.commands = new Discord.Collection();
 
