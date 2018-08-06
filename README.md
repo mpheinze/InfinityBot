@@ -1,5 +1,5 @@
 # InfinityBot
-Development of a Discord Bot for Super Infinity Friends.
+This is the collaborative GitHub for the development of the Discord Bot InfinityBot, which will serve as an organizational helper within the guild’s Discord channel. The main objective of the bot is to easy communication between guild members and from officers to members, as well as facilitating a link between the guild website and Discord server.
 
 Current commands available:
 
@@ -15,11 +15,9 @@ Current commands available:
 
 Upcoming commands:
 
-- Raid reminder for people who are signed up
-- List signups by raid roles (tank, dps, healer)
-- Raid signups from Discord
-- Google search for boss tactics
+- Framework for participation/loot logging via dedicated console channel
+- Automatic sign-up reminder in the main text channel with link to upcoming event
+- Music bot with queueing functionality
 - Much more
-
 
 Authors: Cepheid and Lanayia.
