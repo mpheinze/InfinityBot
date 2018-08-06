@@ -1,7 +1,7 @@
 /* COMMANDLIST COMMAND */
 
 const fs = require('fs');   
-const Discord = require('Discord.js');
+const Discord = require('discord.js');
 
 exports.run = async (client, message, args, level) => {
 
