@@ -4,7 +4,7 @@ This command returns some information from the Warmane armory about a character.
 
 */
 
-const Discord = require("Discord.js");
+const Discord = require("discord.js");
 const request = require('request');
 const cheerio = require('cheerio');
 
